@@ -54,11 +54,11 @@ public class CafeProgram extends Application
         GridPane layout7 = new GridPane();
         Scene scene7 = new Scene(layout7, xAkse, yAkse);
 
-        // Layout og Scene til l�ntrinoprettelseGUI
+        // Layout og Scene til løntrinoprettelseGUI
         GridPane layout8 = new GridPane();
         Scene scene8 = new Scene(layout8, xAkse, yAkse);
 
-        // Layout og Scene til l�ntrinredigeringGUI
+        // Layout og Scene til løntrinredigeringGUI
         GridPane layout9 = new GridPane();
         Scene scene9 = new Scene(layout9, xAkse, yAkse);
 
@@ -73,7 +73,7 @@ public class CafeProgram extends Application
         scene1Hbox2.setMinSize(xAkse, (xAkse / 2));
 
         TextField loginNavnFelt = new TextField("Loginnavn");
-        TextField loginPasswordFelt = new TextField("Password");
+        PasswordField loginPasswordFelt = new PasswordField();
         Button loginKnap = new Button("Log ind");
 
         loginKnap.setPrefSize(128, 64);
@@ -93,11 +93,9 @@ public class CafeProgram extends Application
         layout1.add(scene1Hbox, 0, 0);
         layout1.add(scene1Hbox2, 0, 1);
 
-        loginKnap.setOnAction((event) -> {
-            // Valider brugernavn og password. Er det gyldigt? Hvis ja, forts�t til scene2. Ellers vis fejlmeddelelse.
-            primaryStage.setScene(scene2);
-            primaryStage.show();
-        });
+        //Æogin knap funktion er flyttet til bunden af Start medtoden
+
+
 
         // SLUT loginGUI (scene1)
 
@@ -214,7 +212,7 @@ public class CafeProgram extends Application
 
         // START vagtskemaGUI (scene3)
 
-                // HER SKAL DER V�RE TABLEVIEW MED MERE
+                // HER SKAL DER VÆRE TABLEVIEW MED MERE
         //TODO
 
         // SLUT vagtskemaGUI (scene3)
@@ -275,7 +273,7 @@ public class CafeProgram extends Application
 
         /*
         scene4OpretKnap.setOnAction((event) -> {
-            // Valider alle informationer - er medarbejder valgt? Er dato valgt? Er vagttype valgt? Er medarbejderen ledig til at tage en vagt p� det p�g�ldende tidspunkt?
+            // Valider alle informationer - er medarbejder valgt? Er dato valgt? Er vagttype valgt? Er medarbejderen ledig til at tage en vagt på det pågældende tidspunkt?
             // Hvis ja, opret vagt (det vil sige foretag et SQL statement der opretter vagten direkte i databasen). Ellers vis fejlmeddelelse. ["a-Z"]+
         });
         */
@@ -284,7 +282,7 @@ public class CafeProgram extends Application
 
         // START vagtredigeringGUI (scene5)
 
-                // HER SKAL DER V�RE TABLEVIEW MED MERE
+                // HER SKAL DER VÆRE TABLEVIEW MED MERE
 
         // SLUT vagtredigeringGUI (scene5)
 
@@ -312,7 +310,7 @@ public class CafeProgram extends Application
         scene6logUdKnap.setPrefSize(96, 32);
         scene6Hbox.setMargin(scene6logUdKnap, new Insets(16, 0, 0, 0));
 
-        Label scene6Label = new Label("Indtast f�lgende informationer:");
+        Label scene6Label = new Label("Indtast følgende informationer:");
 
         TextField scene6TF1 = new TextField("Fornavn");
         TextField scene6TF2 = new TextField("Efternavn");
@@ -329,8 +327,8 @@ public class CafeProgram extends Application
         scene6TF5.setPrefSize(256, 32);
         scene6TF6.setPrefSize(256, 32);
 
-        ComboBox scene6CB1 = new ComboBox(); // V�lg stilling
-        ComboBox scene6CB2 = new ComboBox(); // V�lg l�ntrin
+        ComboBox scene6CB1 = new ComboBox(); // Vælg stilling
+        ComboBox scene6CB2 = new ComboBox(); // Vælg løntrin
 
         scene6CB1.setPrefSize(256, 32);
         scene6CB2.setPrefSize(256, 32);
@@ -376,7 +374,7 @@ public class CafeProgram extends Application
 
         /*
         scene6OpretKnap.setOnAction((event) -> {
-            // Valider alle informationer - er alle 6 felter indtastet, og opfylder de kravene for hvad der m� st� i dem? Er stilling og l�ntrin valgt?
+            // Valider alle informationer - er alle 6 felter indtastet, og opfylder de kravene for hvad der må stå i dem? Er stilling og løntrin valgt?
             // Hvis ja, opret medarbejder (det vil sige foretag et SQL statement der opretter medarbejderen direkte i databasen). Ellers vis fejlmeddelelse.
         });
         */
@@ -407,12 +405,12 @@ public class CafeProgram extends Application
         scene7logUdKnap.setPrefSize(96, 32);
         scene7Hbox.setMargin(scene7logUdKnap, new Insets(16, 0, 0, 0));
 
-        TextField scene7TF1 = new TextField("Nuv�rende Fornavn");
-        TextField scene7TF2 = new TextField("Nuv�rende Efternavn");
-        TextField scene7TF3 = new TextField("Nuv�rende Adresse");
-        TextField scene7TF4 = new TextField("Nuv�rende Telefonnummer");
-        TextField scene7TF5 = new TextField("Nuv�rende Registreringsnummer");
-        TextField scene7TF6 = new TextField("Nuv�rende Kontonummer");
+        TextField scene7TF1 = new TextField("Nuværende Fornavn");
+        TextField scene7TF2 = new TextField("Nuværende Efternavn");
+        TextField scene7TF3 = new TextField("Nuværende Adresse");
+        TextField scene7TF4 = new TextField("Nuværende Telefonnummer");
+        TextField scene7TF5 = new TextField("Nuværende Registreringsnummer");
+        TextField scene7TF6 = new TextField("Nuværende Kontonummer");
 
         scene7TF1.setPrefSize(256, 32);
         scene7TF2.setPrefSize(256, 32);
@@ -421,9 +419,9 @@ public class CafeProgram extends Application
         scene7TF5.setPrefSize(256, 32);
         scene7TF6.setPrefSize(256, 32);
 
-        ComboBox scene7CB1 = new ComboBox(); // V�lg stilling
-        ComboBox scene7CB2 = new ComboBox(); // V�lg l�ntrin
-        ComboBox scene7CB3 = new ComboBox(); // V�lg medarbejder
+        ComboBox scene7CB1 = new ComboBox(); // Vælg stilling
+        ComboBox scene7CB2 = new ComboBox(); // Vælg løntrin
+        ComboBox scene7CB3 = new ComboBox(); // Vælg medarbejder
 
         scene7CB1.setPrefSize(256, 32);
         scene7CB2.setPrefSize(256, 32);
@@ -479,20 +477,20 @@ public class CafeProgram extends Application
         /*
         scene7RedigerKnap.setOnAction((event) -> {
             // Er en medarbejder valgt?
-            // Hvis ja, indl�s data fra databasen ind i de nedenst�ende felter (Foretag et SQL statement der henter data ind og l�gger dem i de korrekte textfields og comboboxes). Ellers vis fejlmeddelelse.
+            // Hvis ja, indløs data fra databasen ind i de nedenstående felter (Foretag et SQL statement der henter data ind og lægger dem i de korrekte textfields og comboboxes). Ellers vis fejlmeddelelse.
         });
         */
 
         /*
         scene7SletKnap.setOnAction((event) -> {
             // Er en medarbejder valgt?
-            // Hvis ja, slet medarbejderen (Foretag et SQL statement der sletter medarbejderen i databasen). Vis fejlmeddelelse hvis noget g�r galt.
+            // Hvis ja, slet medarbejderen (Foretag et SQL statement der sletter medarbejderen i databasen). Vis fejlmeddelelse hvis noget gør galt.
         });
         */
 
         // SLUT medarbejderredigeringGUI (scene7)
 
-        // START l�ntrinoprettelseGUI (scene8)
+        // START løntrinoprettelseGUI (scene8)
 
         HBox scene8Hbox = new HBox(768);
         HBox scene8Hbox2 = new HBox(16);
@@ -510,10 +508,10 @@ public class CafeProgram extends Application
 
         ComboBox scene8LoentrinCB = new ComboBox();
 
-        TextField scene8VaerdiTF = new TextField("Indtast v�rdi");
+        TextField scene8VaerdiTF = new TextField("Indtast værdi");
         TextField scene8NavnTF = new TextField("Indtast identifikationsnavn");
 
-        Button scene8OpretKnap = new Button("Opret L�ntrin");
+        Button scene8OpretKnap = new Button("Opret Løntrin");
 
         scene8LoentrinCB.setPrefSize(192, 32);
         scene8VaerdiTF.setPrefSize(192, 32);
@@ -548,9 +546,9 @@ public class CafeProgram extends Application
         });
         */
 
-        // SLUT l�ntrinoprettelseGUI (scene8)
+        // SLUT løntrinoprettelseGUI (scene8)
 
-        // START l�ntrinredigeringGUI (scene9)
+        // START løntrinredigeringGUI (scene9)
 
         HBox scene9Hbox = new HBox(768);
         HBox scene9Hbox2 = new HBox(16);
@@ -570,11 +568,11 @@ public class CafeProgram extends Application
 
         ComboBox scene9LoentrinCB = new ComboBox();
 
-        TextField scene9VaerdiTF = new TextField("Indtast v�rdi");
+        TextField scene9VaerdiTF = new TextField("Indtast værdi");
         TextField scene9NavnTF = new TextField("Indtast identifikationsnavn");
 
-        Button scene9RedigerKnap = new Button("Rediger L�ntrin");
-        Button scene9SletKnap = new Button("Slet L�ntrin");
+        Button scene9RedigerKnap = new Button("Rediger Løntrin");
+        Button scene9SletKnap = new Button("Slet Løntrin");
         Button scene9GodkendKnap = new Button("Godkend Redigering");
 
         scene9LoentrinCB.setPrefSize(192, 32);
@@ -615,7 +613,26 @@ public class CafeProgram extends Application
         });
         */
         
-        // SLUT l�ntrinredigeringGUI (scene9)
+        // SLUT løntrinredigeringGUI (scene9)
+
+        loginKnap.setOnAction((event) -> {
+            Login login = new Login();
+            if(login.validerLogin(loginNavnFelt.getText(), loginPasswordFelt.getText()) == 1){
+                primaryStage.setScene(scene2);
+                primaryStage.show();
+            }
+            else if(login.validerLogin(loginNavnFelt.getText(), loginPasswordFelt.getText()) == 2){
+                opretMedarbejderKnap.setDisable(true);
+                redigerMedarbejderKnap.setDisable(true);
+                opretLoentrinKnap.setDisable(true);
+                redigerLoentrinKnap.setDisable(true);
+                primaryStage.setScene(scene2);
+                primaryStage.show();
+            }
+
+
+
+        });
 
 
         primaryStage.setScene(scene1);
@@ -634,4 +651,5 @@ public class CafeProgram extends Application
         redigerLoentrinKnap.setDisable(false);
     }
     */
+
 }
